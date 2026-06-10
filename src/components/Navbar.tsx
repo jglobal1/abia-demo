@@ -38,7 +38,7 @@ const navItems: NavItem[] = [
 ];
 
 const linkClassName =
-  "px-2 py-2 text-xs font-medium whitespace-nowrap text-[var(--black)] hover:text-[var(--wine)] sm:text-sm xl:px-2.5";
+  "px-2 py-2 text-xs font-bold whitespace-nowrap text-[var(--black)] hover:text-[var(--wine)] sm:text-sm xl:px-2.5";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -91,7 +91,7 @@ export default function Navbar() {
     );
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 overflow-visible border-b border-gray-200 bg-[var(--hero-bg)]">
+    <header className="fixed top-0 right-0 left-0 z-50 overflow-visible border-b border-gray-200 bg-[#d4e8f5]">
       <div className="mx-auto flex h-20 items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="hidden items-center lg:flex xl:gap-10">
           <a href="#" className="flex shrink-0 items-center">
@@ -129,7 +129,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <nav className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-gray-200 bg-[var(--hero-bg)] lg:hidden">
+        <nav className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-gray-200 bg-[#d4e8f5] lg:hidden">
           <div className="flex flex-col px-4 py-2">
             {navItems.map((item) =>
               item.children ? (
@@ -137,7 +137,7 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => toggleMobileExpand(item.label)}
-                    className="flex w-full items-center justify-between border-b border-gray-200 py-3 text-sm font-medium text-[var(--black)]"
+                    className="flex w-full items-center justify-between border-b border-gray-200 py-3 text-sm font-bold text-[var(--black)]"
                   >
                     {item.label}
                     <ChevronDown
@@ -164,7 +164,7 @@ export default function Navbar() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="border-b border-gray-200 py-3 text-sm font-medium text-[var(--black)] last:border-b-0"
+                  className="border-b border-gray-200 py-3 text-sm font-bold text-[var(--black)] last:border-b-0"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

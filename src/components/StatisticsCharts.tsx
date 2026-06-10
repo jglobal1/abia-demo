@@ -1,5 +1,7 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 import {
   Bar,
   BarChart,
@@ -12,6 +14,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+
+const reportOptions = [
+  { value: "2025", label: "2025 Procurement Reports" },
+  { value: "2024", label: "2024 Procurement Reports" },
+  { value: "2023", label: "2023 Procurement Reports" },
+];
 
 const categoryData = [
   { name: "Goods", value: 40 },
@@ -44,15 +52,30 @@ const monthlyData = [
 const pieColors = ["#8B1A1A", "#1A2744", "#666666", "#C8962E"];
 
 export default function StatisticsCharts() {
+  const [selectedReport, setSelectedReport] = useState("2025");
+
   return (
     <section className="bg-[var(--gray-light)] py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <a
-          href="#"
-          className="mb-10 block cursor-pointer text-center text-2xl font-bold text-[var(--black)] underline decoration-[var(--black)] underline-offset-8 transition-colors hover:text-[var(--text-muted)] hover:decoration-[var(--text-muted)] sm:text-3xl"
-        >
-          2025 Procurement Reports
-        </a>
+        <div className="relative mx-auto mb-10 flex w-fit max-w-full justify-center">
+          <select
+            value={selectedReport}
+            onChange={(e) => setSelectedReport(e.target.value)}
+            className="cursor-pointer appearance-none border-0 border-b-2 border-[var(--black)] bg-transparent pr-8 text-center text-2xl font-bold text-[var(--black)] focus:outline-none sm:text-3xl"
+            aria-label="Select procurement report year"
+          >
+            {reportOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <ChevronDown
+            size={22}
+            className="pointer-events-none absolute top-1/2 right-0 -translate-y-1/2 text-[var(--black)]"
+            aria-hidden="true"
+          />
+        </div>
 
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="rounded-lg border border-gray-200 bg-[var(--white)] p-4 sm:p-6">
@@ -106,7 +129,7 @@ export default function StatisticsCharts() {
 
         <div className="rounded-lg border border-gray-200 bg-[var(--white)] p-4 sm:p-6">
           <h3 className="mb-4 text-center text-sm font-semibold text-[var(--black)] sm:text-base">
-            Monthly Contract Awards (2025)
+            Monthly Contract Awards ({selectedReport})
           </h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={monthlyData}>
