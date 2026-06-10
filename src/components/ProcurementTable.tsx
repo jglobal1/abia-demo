@@ -359,7 +359,7 @@ export default function ProcurementTable() {
               className={`px-4 py-3 text-sm font-semibold sm:px-6 sm:text-base ${
                 activeTab === tab.id
                   ? "border border-gray-200 border-b-0 bg-[var(--white)] text-[var(--black)] shadow-sm"
-                  : "bg-[var(--wine)] text-[var(--white)] hover:bg-[var(--wine-dark)]"
+                  : "bg-[#232323] text-[var(--white)] hover:bg-[#1a1a1a]"
               }`}
             >
               {tab.label}
@@ -385,7 +385,7 @@ export default function ProcurementTable() {
             {activeTab === "tender" && (
               <table className="w-full min-w-[800px] border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[var(--wine)] text-left text-[var(--white)]">
+                  <tr className="bg-[#232323] text-left text-[var(--white)]">
                     <th className="px-4 py-3 font-semibold">Tender ID</th>
                     <th className="px-4 py-3 font-semibold">MDA</th>
                     <th className="px-4 py-3 font-semibold">Tender Title</th>
@@ -425,7 +425,7 @@ export default function ProcurementTable() {
             {activeTab === "awards" && (
               <table className="w-full min-w-[800px] border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[var(--wine)] text-left text-[var(--white)]">
+                  <tr className="bg-[#232323] text-left text-[var(--white)]">
                     <th className="px-4 py-3 font-semibold">Award ID</th>
                     <th className="px-4 py-3 font-semibold">MDA</th>
                     <th className="px-4 py-3 font-semibold">Project Title</th>
@@ -459,7 +459,7 @@ export default function ProcurementTable() {
             {activeTab === "plans" && (
               <table className="w-full min-w-[800px] border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[var(--wine)] text-left text-[var(--white)]">
+                  <tr className="bg-[#232323] text-left text-[var(--white)]">
                     <th className="px-4 py-3 font-semibold">Plan ID</th>
                     <th className="px-4 py-3 font-semibold">MDA</th>
                     <th className="px-4 py-3 font-semibold">Description</th>
@@ -493,7 +493,7 @@ export default function ProcurementTable() {
             {activeTab === "mdas" && (
               <table className="w-full min-w-[500px] border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[var(--wine)] text-left text-[var(--white)]">
+                  <tr className="bg-[#232323] text-left text-[var(--white)]">
                     <th className="px-4 py-3 font-semibold">Ministry / Agency</th>
                     <th className="px-4 py-3 font-semibold">Code</th>
                   </tr>
@@ -515,7 +515,7 @@ export default function ProcurementTable() {
             {activeTab === "vendors" && (
               <table className="w-full min-w-[700px] border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[var(--wine)] text-left text-[var(--white)]">
+                  <tr className="bg-[#232323] text-left text-[var(--white)]">
                     <th className="px-4 py-3 font-semibold">Vendor Name</th>
                     <th className="px-4 py-3 font-semibold">Registration No</th>
                     <th className="px-4 py-3 font-semibold">Category</th>
@@ -545,7 +545,7 @@ export default function ProcurementTable() {
             <div className="mt-6 text-center">
               <button
                 type="button"
-                className="rounded border-2 border-[var(--wine)] px-6 py-2.5 text-sm font-semibold text-[var(--wine)] hover:bg-[var(--wine)] hover:text-[var(--white)]"
+                className="rounded border-2 border-[#232323] px-6 py-2.5 text-sm font-semibold text-[#232323] hover:bg-[#232323] hover:text-[var(--white)]"
               >
                 VIEW MORE TENDER ADVERTS
               </button>

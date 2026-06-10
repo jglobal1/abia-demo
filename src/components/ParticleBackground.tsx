@@ -79,7 +79,7 @@ const particleOptions: ISourceOptions = {
 
 export default function ParticleBackground() {
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-[#d4e8f5]">
+    <div className="absolute inset-0 z-0 overflow-hidden bg-[var(--hero-bg)]">
       <ParticlesProvider init={loadSlim}>
         <Particles
           id="hero-particles"

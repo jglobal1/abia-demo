@@ -28,7 +28,7 @@ export default function HeroBanner() {
               <a
                 key={card.label}
                 href={card.href}
-                className="rounded-lg bg-[var(--wine)] px-8 py-4 text-center text-sm font-semibold text-[var(--white)] hover:bg-[var(--wine-dark)] sm:text-base"
+                className="rounded-lg bg-[var(--brand-green)] px-8 py-4 text-center text-sm font-semibold text-[var(--white)] hover:bg-[var(--brand-green-dark)] sm:text-base"
               >
                 {card.label}
               </a>

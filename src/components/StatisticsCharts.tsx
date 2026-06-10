@@ -47,9 +47,12 @@ export default function StatisticsCharts() {
   return (
     <section className="bg-[var(--gray-light)] py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mb-10 text-center text-2xl font-bold text-[var(--black)] sm:text-3xl">
+        <a
+          href="#"
+          className="mb-10 block cursor-pointer text-center text-2xl font-bold text-[var(--black)] underline decoration-[var(--black)] underline-offset-8 transition-colors hover:text-[var(--text-muted)] hover:decoration-[var(--text-muted)] sm:text-3xl"
+        >
           2025 Procurement Reports
-        </h2>
+        </a>
 
         <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="rounded-lg border border-gray-200 bg-[var(--white)] p-4 sm:p-6">

@@ -22,17 +22,9 @@ const navItems: NavItem[] = [
       { label: "Registered Vendors", href: "#procurement" },
     ],
   },
-  {
-    label: "e-Auction",
-    href: "#",
-    children: [
-      { label: "Live Auctions", href: "#" },
-      { label: "Auction Results", href: "#" },
-    ],
-  },
   { label: "OCDS Portal", href: "#" },
   {
-    label: "About us",
+    label: "About BPP",
     href: "#",
     children: [
       { label: "About BPP", href: "#" },
@@ -40,11 +32,13 @@ const navItems: NavItem[] = [
       { label: "Functions of BPP", href: "#" },
     ],
   },
-  { label: "User Manual", href: "#" },
+  { label: "Training", href: "#" },
   { label: "Register", href: "#" },
   { label: "Login", href: "#" },
-  { label: "Contact us", href: "#footer" },
 ];
+
+const linkClassName =
+  "px-2 py-2 text-xs font-medium whitespace-nowrap text-[var(--black)] hover:text-[var(--wine)] sm:text-sm xl:px-2.5";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -66,21 +60,21 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => toggleDropdown(item.label)}
-            className="flex items-center gap-1 px-3 py-2.5 text-base font-medium whitespace-nowrap text-[var(--white)] hover:text-white/80 xl:px-3.5"
+            className={`flex items-center gap-0.5 ${linkClassName}`}
           >
             {item.label}
             <ChevronDown
-              size={16}
+              size={14}
               className={`transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`}
             />
           </button>
           {openDropdown === item.label && (
-            <div className="absolute top-full left-0 z-50 min-w-[200px] rounded-b border border-[var(--wine-dark)] bg-[var(--wine-dark)] py-1 shadow-lg">
+            <div className="absolute top-full left-0 z-50 min-w-[200px] rounded-b border border-gray-200 bg-[var(--white)] py-1 shadow-lg">
               {item.children.map((child) => (
                 <a
                   key={child.label}
                   href={child.href}
-                  className="block px-4 py-2.5 text-base text-[var(--white)] hover:bg-[var(--wine)]"
+                  className="block px-4 py-2 text-sm text-[var(--black)] hover:bg-[var(--hero-bg)]"
                   onClick={() => setOpenDropdown(null)}
                 >
                   {child.label}
@@ -90,57 +84,52 @@ export default function Navbar() {
           )}
         </div>
       ) : (
-        <a
-          key={item.label}
-          href={item.href}
-          className="px-3 py-2.5 text-base font-medium whitespace-nowrap text-[var(--white)] hover:text-white/80 xl:px-3.5"
-        >
+        <a key={item.label} href={item.href} className={linkClassName}>
           {item.label}
         </a>
       ),
     );
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 overflow-visible bg-[var(--wine)] shadow-md">
+    <header className="fixed top-0 right-0 left-0 z-50 overflow-visible border-b border-gray-200 bg-[var(--hero-bg)]">
       <div className="mx-auto flex h-20 items-center justify-center px-4 sm:px-6 lg:px-8">
-        {/* Desktop: logo + links grouped and centered together */}
-        <div className="hidden items-center gap-8 lg:flex xl:gap-10">
+        <div className="hidden items-center lg:flex xl:gap-10">
           <a href="#" className="flex shrink-0 items-center">
             <Image
               src="/abia-logo.png"
               alt="Abia State Government"
-              width={140}
-              height={140}
-              className="h-32 w-32 object-contain"
+              width={280}
+              height={280}
+              className="h-64 w-64 object-contain"
             />
           </a>
-          <nav className="flex items-center gap-1 xl:gap-2">{renderNavLinks()}</nav>
+          <div className="w-28 shrink-0 xl:w-36" aria-hidden="true" />
+          <nav className="flex items-center gap-0.5 xl:gap-1">{renderNavLinks()}</nav>
         </div>
 
-        {/* Mobile: logo left, menu right */}
         <div className="flex w-full items-center justify-between lg:hidden">
           <a href="#" className="flex items-center">
             <Image
               src="/abia-logo.png"
               alt="Abia State Government"
-              width={88}
-              height={88}
-              className="h-[88px] w-[88px] object-contain"
+              width={150}
+              height={150}
+              className="h-[150px] w-[150px] object-contain"
             />
           </a>
           <button
             type="button"
-            className="rounded p-2 text-[var(--white)]"
+            className="rounded p-2 text-[var(--black)]"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
       {menuOpen && (
-        <nav className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-[var(--wine-dark)] bg-[var(--wine)] lg:hidden">
+        <nav className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-gray-200 bg-[var(--hero-bg)] lg:hidden">
           <div className="flex flex-col px-4 py-2">
             {navItems.map((item) =>
               item.children ? (
@@ -148,21 +137,21 @@ export default function Navbar() {
                   <button
                     type="button"
                     onClick={() => toggleMobileExpand(item.label)}
-                    className="flex w-full items-center justify-between border-b border-[var(--wine-dark)] py-3.5 text-base font-medium text-[var(--white)]"
+                    className="flex w-full items-center justify-between border-b border-gray-200 py-3 text-sm font-medium text-[var(--black)]"
                   >
                     {item.label}
                     <ChevronDown
-                      size={18}
+                      size={16}
                       className={`transition-transform ${mobileExpanded === item.label ? "rotate-180" : ""}`}
                     />
                   </button>
                   {mobileExpanded === item.label && (
-                    <div className="bg-[var(--wine-dark)] pl-4">
+                    <div className="bg-[var(--white)] pl-4">
                       {item.children.map((child) => (
                         <a
                           key={child.label}
                           href={child.href}
-                          className="block border-b border-[var(--wine)] py-3 text-base text-white/90 last:border-b-0"
+                          className="block border-b border-gray-100 py-2.5 text-sm text-[var(--black)] last:border-b-0"
                           onClick={() => setMenuOpen(false)}
                         >
                           {child.label}
@@ -175,7 +164,7 @@ export default function Navbar() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="border-b border-[var(--wine-dark)] py-3.5 text-base font-medium text-[var(--white)] last:border-b-0"
+                  className="border-b border-gray-200 py-3 text-sm font-medium text-[var(--black)] last:border-b-0"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}

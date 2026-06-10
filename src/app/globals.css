@@ -6,8 +6,11 @@
   --white: #ffffff;
   --black: #111111;
   --gray-light: #f5f5f5;
-  --navy: #1a2744;
+  --navy: #232323;
   --text-muted: #666666;
+  --hero-bg: #d4e8f5;
+  --brand-green: #017d43;
+  --brand-green-dark: #015a32;
 }
 
 body {
