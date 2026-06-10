@@ -71,8 +71,8 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-bold tracking-wide">HEAD OFFICE</h4>
             <address className="space-y-1 text-sm not-italic text-gray-300">
               <p>Abia State BPP</p>
-              <p>Plot 12, Block C, Behind Government House</p>
-              <p>G.R.A., Umuahia</p>
+              <p>New Government Secretariat Complex,</p>
+              <p>along Nnamdi Azikiwe Secretariat Way,</p>
               <p>Umuahia, Abia State</p>
             </address>
           </div>
